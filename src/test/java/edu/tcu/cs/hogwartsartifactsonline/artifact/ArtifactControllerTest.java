@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
-@AutoConfigureMockMvc(addFilters = false) // Turn off Spring Security
+@AutoConfigureMockMvc
 class ArtifactControllerTest {
 
     @Autowired
@@ -98,7 +98,7 @@ class ArtifactControllerTest {
     }
 
     @Test
-    void testFindArtifactByIdSuccess() throws Exception {
+    void tesFindArtifactByIdSuccess() throws Exception {
         // Given
         given(this.artifactService.findById("1250808601744904191")).willReturn(this.artifacts.get(0));
 
@@ -112,7 +112,7 @@ class ArtifactControllerTest {
     }
 
     @Test
-    void testFindArtifactByIdNotFound() throws Exception {
+    void tesFindArtifactByIdNotFound() throws Exception {
         // Given
         given(this.artifactService.findById("1250808601744904191")).willThrow(new ObjectNotFoundException("artifact", "1250808601744904191"));
 
